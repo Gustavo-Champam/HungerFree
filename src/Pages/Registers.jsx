@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Navbars from "../Components/Navbars";
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';

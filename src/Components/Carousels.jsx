@@ -33,8 +33,8 @@ function Carousels() {
         </Carousel.Item>
       </Carousel>
       <div className="text-center">
-        <h2 className="display-5 mt-3">Let Say No To Hunger!</h2>
-        <p className="lead text-muted">We Save People Who needs Food</p>
+        <h2 className="display-5 mt-3">Vamos dizer não à fome!</h2>
+        <p className="lead text-muted">Nós salvamos pessoas que precisam de comida</p>
       </div>
     </>
   );
