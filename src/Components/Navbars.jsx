@@ -12,7 +12,7 @@ function Navbars() {
         <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
           <Nav>
             <Nav.Link className='text-light animated-link animate_animated animate_fadeInRight' href="/"><b>Home</b></Nav.Link>
-            <Nav.Link className='text-light animated-link animate_animated animate_fadeInRight' href="/about"><b>Sobre Nós</b></Nav.Link>
+            <Nav.Link className='text-light animated-link animate_animated animate_fadeInRight' href="/about"><b>Dados e Impactos e Sobre Nós</b></Nav.Link>
             <Nav.Link className='text-light animated-link animate_animated animate_fadeInRight' href="/reviews"><b>Reviews</b></Nav.Link>
             <Nav.Link className='text-light animated-link animate_animated animate_fadeInRight' href="/contact"><b>Contate-nos</b></Nav.Link>
           </Nav>
