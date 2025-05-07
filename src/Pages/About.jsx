@@ -1,33 +1,117 @@
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import Navbars from "../Components/Navbars";
 import Footer from '../Components/Footer';
+import { Helmet } from 'react-helmet';
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip } from 'chart.js';
 
-const About = () => {
+ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip);
+
+const dataFome = {
+  labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+  datasets: [
+    {
+      label: 'Milhões de pessoas com fome',
+      data: [10.3, 12.5, 19.1, 24.4, 28.5, 33.1],
+      borderColor: '#FF914D',
+      backgroundColor: 'rgba(255, 145, 77, 0.2)',
+      tension: 0.3,
+      fill: true,
+    },
+  ],
+};
+
+const optionsFome = {
+  responsive: true,
+  plugins: {
+    title: {
+      display: true,
+      text: 'Evolução da Fome no Brasil (2018–2023)',
+    },
+  },
+};
+
+const Sobre = () => {
   return (
     <>
+      <Helmet>
+        <title>Sobre | HungerFree</title>
+        <meta
+          name="description"
+          content="Informações reais e atualizadas sobre a fome infantil no Brasil e a atuação da HungerFree no combate à insegurança alimentar."
+        />
+      </Helmet>
+
       <Navbars />
-      <Container className="mt-5">
+      <Container className="mt-5 mb-5">
+        <h2 className="text-center mb-4" style={{ color: '#FF914D' }}>
+          Sobre o Projeto HungerFree
+        </h2>
+
         <Row>
           <Col>
-            <h2 className="text-center mb-4" style={{ color:'#FF914D'}}>Sobre Nós</h2>
-            <p style={{ fontSize:'18px'}}>
-              No Hunger Free, nossa dedicação para erradicar a fome nas escolas é o que nos move. De acordo com dados de 2025, a fome nas escolas brasileiras afeta mais de 20 milhões de crianças, o que compromete seu desempenho acadêmico e bem-estar. Através de nossa plataforma inovadora, buscamos conectar doadores de alimentos com escolas e organizações que atendem a essas comunidades em situação de insegurança alimentar. 
-            </p>
-            <p style={{ fontSize:'18px'}}>
-              Em 2025, a situação é alarmante, com muitos alunos indo para a escola sem uma refeição adequada. A falta de alimentação impacta diretamente na capacidade de aprendizagem das crianças, exacerbando o ciclo de pobreza. Nossa missão é combater esse problema criando um processo simples e eficiente de doação de alimentos, permitindo que escolas, empresas e indivíduos se envolvam facilmente na causa. Voluntários, que são o coração da nossa operação, têm a responsabilidade de coletar e distribuir alimentos para as escolas mais necessitadas.
-            </p>
-            <p style={{ fontSize:'18px'}}>
-              Além das histórias individuais, nossa plataforma oferece benefícios significativos. Em primeiro lugar, garantimos que os alimentos cheguem rapidamente às crianças, minimizando os atrasos e maximizando o impacto. Nossa abordagem comunitária também fortalece o senso de pertencimento e empoderamento, tanto para doadores quanto para voluntários, ampliando o alcance de nossas ações. E, talvez o mais importante, ao combater o desperdício de alimentos e a fome simultaneamente, contribuímos para um futuro mais sustentável para as próximas gerações.
-            </p>
-            <p style={{ fontSize:'18px'}}>
-              Mas o nosso trabalho está longe de acabar. De acordo com dados de 2025, os desafios aumentam a cada dia, com um número crescente de crianças caindo no ciclo da fome. Convidamos você a se juntar a nós nessa missão. Juntos, podemos ser a mudança que queremos ver no mundo. Juntos, podemos construir um futuro onde nenhuma criança vá para a cama com fome. Juntos, podemos fazer a diferença que vai muito além das telas e atingir a vida daqueles que mais precisam.
+            <h4>📊 A Realidade da Fome Infantil no Brasil</h4>
+            <p style={{ fontSize: '18px' }}>
+              Segundo a UNICEF, em 2023 cerca de <strong>28,8 milhões de crianças e adolescentes</strong> viviam em situação de pobreza multidimensional.
+              <br /><br />
+              A Rede Penssan também revelou que <strong>37,4% das crianças até 4 anos</strong> viviam em lares com insegurança alimentar, sendo 4,5% em situação grave.
+              <br /><br />
+              Na região Norte, <strong>4,7% das crianças</strong> com menos de 5 anos estavam desnutridas em 2023.
             </p>
           </Col>
         </Row>
+
+        {/* Gráfico */}
+        <div className="my-5">
+          <Line data={dataFome} options={optionsFome} />
+        </div>
+
+        {/* Cards com impacto */}
+        <h3 className="text-center my-5" style={{ color: '#FF914D' }}>Dados de Impacto e Futuro</h3>
+
+        <Card className="mb-4 shadow-sm">
+          <Card.Body>
+            <Card.Title>🌱 Resultados Alcançados</Card.Title>
+            <Card.Text style={{ fontSize: '17px' }}>
+              Desde o lançamento, já redirecionamos <strong>3 toneladas de alimentos</strong> para escolas e ONGs, beneficiando centenas de crianças.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <Card className="mb-4 shadow-sm bg-light">
+          <Card.Body>
+            <Card.Title>🚀 Metas para os Próximos Meses</Card.Title>
+            <Card.Text style={{ fontSize: '17px' }}>
+              <ul>
+                <li>Expandir para 20+ cidades</li>
+                <li>Parcerias com supermercados</li>
+                <li>App com rastreamento em tempo real</li>
+              </ul>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <Card className="mb-4 shadow-sm bg-warning text-dark">
+          <Card.Body>
+            <Card.Title>💛 Como Você Pode Ajudar</Card.Title>
+            <Card.Text style={{ fontSize: '17px' }}>
+              <ul>
+                <li><strong>Doe</strong> alimentos excedentes</li>
+                <li><strong>Seja voluntário</strong> na sua cidade</li>
+                <li><strong>Divulgue</strong> para sua rede</li>
+              </ul>
+              <em>Juntos, nenhuma criança precisa estudar com fome.</em>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <p className="text-muted text-center mt-5" style={{ fontSize: '14px' }}>
+          Fontes: UNICEF, Rede Penssan, O Globo (2023–2024)
+        </p>
       </Container>
       <Footer />
-    </>    
-  )
-}
+    </>
+  );
+};
 
-export default About;
+export default Sobre;
